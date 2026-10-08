@@ -1,0 +1,231 @@
+/* ===================================
+   바이브 카페 - 전체 디자인 스타일시트
+   =================================== */
+
+/* 기본 색상 변수 설정 (블루 톤) */
+:root {
+  --color-bg: #eff5fc;        /* 배경 연한 하늘색 */
+  --color-brown: #1d5fb0;     /* 메인 블루 */
+  --color-brown-light: #2f7adb; /* 버튼 hover 시 밝은 블루 */
+  --color-brown-shadow: rgba(29, 95, 176, 0.2); /* 포커스 시 연한 파란 그림자 */
+  --color-white: #ffffff;
+  --color-confirm-bg: #e6f4ea;  /* 주문 확인 메시지 연두색 배경 */
+  --color-confirm-text: #2e7d32; /* 주문 확인 메시지 초록 글씨 */
+}
+
+/* 전체 공통 박스 모델 설정 */
+* {
+  box-sizing: border-box;
+}
+
+/* 바디: 카페 느낌의 배경과 기본 폰트 */
+body {
+  margin: 0;
+  padding: 20px;
+  background-color: var(--color-bg);
+  font-family: '맑은 고딕', sans-serif;
+  color: var(--color-brown);
+  display: flex;
+  justify-content: center;
+}
+
+/* 페이지 전체를 감싸는 영역: 최대 너비 520px, 가운데 정렬 */
+header,
+#order-form,
+#confirm-message {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* body를 세로 방향 flex로 만들어 header, form, 메시지를 가운데 정렬 */
+body {
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ===== 헤더 영역 ===== */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header .logo {
+  font-size: 48px;
+}
+
+header h1 {
+  margin: 8px 0 4px;
+  color: var(--color-brown);
+}
+
+header .subtitle {
+  margin: 0;
+  color: var(--color-brown-light);
+  font-size: 14px;
+}
+
+/* ===== 주문서 폼 영역 ===== */
+#order-form {
+  background-color: var(--color-white);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(29, 95, 176, 0.12);
+}
+
+/* 각 입력 항목 그룹 간격 */
+.form-group {
+  margin-bottom: 18px;
+  border: none;
+  padding: 0;
+}
+
+.form-group label,
+.form-group legend {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: var(--color-brown);
+}
+
+/* 텍스트/전화/숫자 입력, 드롭다운, 텍스트영역 공통 스타일 */
+input[type="text"],
+input[type="tel"],
+input[type="number"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #c3d9f0;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 15px;
+  background-color: var(--color-white);
+  color: var(--color-brown);
+}
+
+/* 포커스 시 테두리 갈색 + 연한 갈색 그림자 */
+input[type="text"]:focus,
+input[type="tel"]:focus,
+input[type="number"]:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-brown);
+  box-shadow: 0 0 0 3px var(--color-brown-shadow);
+}
+
+textarea {
+  min-height: 80px;
+  resize: vertical;
+}
+
+/* 라디오/체크박스 묶음: 가로로 나란히 배치 */
+fieldset.form-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+fieldset.form-group legend {
+  width: 100%;
+}
+
+fieldset.form-group label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: normal;
+  margin-bottom: 0;
+}
+
+fieldset.form-group input[type="radio"],
+fieldset.form-group input[type="checkbox"] {
+  accent-color: var(--color-brown);
+  width: 16px;
+  height: 16px;
+}
+
+/* ===== 예상 금액 표시 ===== */
+#total-price {
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--color-brown);
+  margin: 20px 0;
+}
+
+/* ===== 버튼 영역 ===== */
+.form-buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.form-buttons button {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* 주문하기 버튼: 갈색 배경 + 흰색 글씨 */
+#order-btn {
+  background-color: var(--color-brown);
+  color: var(--color-white);
+  border: 1px solid var(--color-brown);
+}
+
+#order-btn:hover {
+  background-color: var(--color-brown-light);
+}
+
+/* 다시 작성 버튼: 흰 배경 + 갈색 테두리 */
+#reset-btn {
+  background-color: var(--color-white);
+  color: var(--color-brown);
+  border: 1px solid var(--color-brown);
+}
+
+#reset-btn:hover {
+  background-color: var(--color-bg);
+}
+
+/* ===== 주문 확인 메시지 ===== */
+#confirm-message {
+  margin-top: 20px;
+  padding: 16px;
+  border-radius: 12px;
+  background-color: var(--color-confirm-bg);
+  color: var(--color-confirm-text);
+  text-align: center;
+  font-weight: bold;
+}
+
+/* hidden 속성 또는 hidden 클래스가 붙으면 화면에서 숨기기 */
+#confirm-message[hidden],
+.hidden {
+  display: none !important;
+}
+
+/* ===== 모바일 반응형 ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 12px;
+  }
+
+  #order-form {
+    padding: 16px;
+    border-radius: 12px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  fieldset.form-group {
+    gap: 10px;
+  }
+}
